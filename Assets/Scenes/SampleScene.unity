@@ -24,21 +24,21 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 32
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -133,8 +133,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 409869049}
+  - component: {fileID: 409869052}
   - component: {fileID: 409869048}
   - component: {fileID: 409869050}
+  - component: {fileID: 409869051}
   m_Layer: 0
   m_Name: GM
   m_TagString: Untagged
@@ -149,13 +151,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409869047}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3dedf1463684144b9d368e2b3ffda03, type: 3}
+  m_Script: {fileID: 11500000, guid: 5142b6c901e8b9540a4d97931a6ac17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SpheresMax: 10000
   Speed: 500
+  prefab: {fileID: 1684673917316761039, guid: b057277b4aa7e2d4cb2ff8c290a57455, type: 3}
+  frameSkip: 5
 --- !u!4 &409869049
 Transform:
   m_ObjectHideFlags: 0
@@ -177,14 +181,43 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409869047}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22af6b4bfd5f386499074e9454a1d2b1, type: 3}
+  m_Script: {fileID: 11500000, guid: b16e57bba13fa3a41b49e6592cf2fd7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SpheresMax: 10000
   Speed: 500
   prefab: {fileID: 1684673917316761039, guid: b057277b4aa7e2d4cb2ff8c290a57455, type: 3}
+  frameSkip: 5
+--- !u!114 &409869051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409869047}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15ee5af16fce58489b0162020568048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpheresMax: 10000
+  Speed: 500
+  prefab: {fileID: 1684673917316761039, guid: b057277b4aa7e2d4cb2ff8c290a57455, type: 3}
+  frameSkip: 5
+--- !u!114 &409869052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409869047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a0369ca676c4c47910f7f64ed021c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,8 +253,8 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
+    m_Type: 1
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -251,7 +284,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   m_RenderingLayerMask: 1
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
@@ -334,7 +367,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 256
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -375,8 +408,8 @@ LightingSettings:
   m_BounceScale: 1
   m_AlbedoBoost: 1
   m_IndirectOutputScale: 1
-  m_UsingShadowmask: 1
-  m_BakeBackend: 2
+  m_UsingShadowmask: 0
+  m_BakeBackend: 1
   m_LightmapMaxSize: 512
   m_BakeResolution: 20
   m_Padding: 2
@@ -386,10 +419,10 @@ LightingSettings:
   m_CompAOExponent: 1
   m_CompAOExponentDirect: 0
   m_ExtractAO: 0
-  m_MixedBakeMode: 2
+  m_MixedBakeMode: 1
   m_LightmapsBakeMode: 1
   m_FilterMode: 1
-  m_LightmapParameters: {fileID: 0}
+  m_LightmapParameters: {fileID: 15201, guid: 0000000000000000f000000000000000, type: 0}
   m_ExportTrainingData: 0
   m_TrainingDataDestination: TrainingData
   m_RealtimeResolution: 2
@@ -405,10 +438,10 @@ LightingSettings:
   m_PVREnvironmentSampleCount: 500
   m_PVREnvironmentReferencePointCount: 2048
   m_LightProbeSampleCountMultiplier: 4
-  m_PVRBounces: 2
-  m_PVRRussianRouletteStartBounce: 2
+  m_PVRBounces: 0
+  m_PVRRussianRouletteStartBounce: -1
   m_PVREnvironmentMIS: 0
-  m_PVRFilteringMode: 2
+  m_PVRFilteringMode: 0
   m_PVRDenoiserTypeDirect: 0
   m_PVRDenoiserTypeIndirect: 0
   m_PVRDenoiserTypeAO: 0
